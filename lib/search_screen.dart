@@ -3,9 +3,9 @@ import 'package:vietasy/models/foods.dart';
 import 'package:vietasy/food_details_page.dart';
 
 class SearchScreen extends StatefulWidget {
-  late final String initialSearch;
+  const SearchScreen({super.key, this.initialSearch = ''});
 
-  SearchScreen({this.initialSearch = ''});
+  final String initialSearch;
 
   @override
   State<SearchScreen> createState() => _SearchScreenState();
@@ -13,7 +13,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   final controller = TextEditingController();
-  List<Food> foods = all_foods;
+  List<Food> foods = allFoods;
 
   @override
   void initState() {
@@ -26,20 +26,21 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text("Search"),
       ),
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
+            margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
             child: TextField(
               controller: controller,
               decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintText: 'food search',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.blue),
+                    borderSide: const BorderSide(color: Colors.blue),
                   )),
               onChanged: searchFood,
             ),
@@ -62,8 +63,8 @@ class _SearchScreenState extends State<SearchScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => FoodDetailScreen(
-                                food: food,
-                              ))),
+                                    food: food,
+                                  ))),
                     );
                   })),
         ],
@@ -72,7 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   void searchFood(String query) {
-    final suggestions = all_foods.where((food) {
+    final suggestions = allFoods.where((food) {
       final foodName = food.name.toLowerCase();
       final input = query.toLowerCase();
       return foodName.contains(input);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'foods.dart';
 
 class FoodProvider with ChangeNotifier {
-  List<Food> _foods = all_foods;
+  List<Food> _foods = allFoods;
 
   List<Food> get foods => _foods;
 

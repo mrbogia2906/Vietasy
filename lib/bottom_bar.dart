@@ -5,6 +5,8 @@ import 'favorite_screen.dart';
 import 'profile_screen.dart';
 
 class HomeWithBottomNav extends StatefulWidget {
+  const HomeWithBottomNav({super.key});
+
   @override
   _HomeWithBottomNavState createState() => _HomeWithBottomNavState();
 }
@@ -12,7 +14,7 @@ class HomeWithBottomNav extends StatefulWidget {
 class _HomeWithBottomNavState extends State<HomeWithBottomNav> {
   int _selectedIndex = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     Home(),
     SearchScreen(),
     FavoriteScreen(),
@@ -34,7 +36,7 @@ class _HomeWithBottomNavState extends State<HomeWithBottomNav> {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black54,
         unselectedItemColor: Colors.grey,
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',

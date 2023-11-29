@@ -16,6 +16,12 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Vietasty',
+      theme: ThemeData(
+        fontFamily: "Roboto",
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
+        useMaterial3: true,
+      ),
       home: _isLoggedIn ? HomeWithBottomNav() : SignUp(),
       routes: {
         // '/login': (context) => LoginScreen(),

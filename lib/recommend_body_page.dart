@@ -18,28 +18,39 @@ class _RecommendBodyPageState extends State<RecommendBodyPage> {
     final foods = foodProvider.foods;
 
     return SliverGrid(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
+        (BuildContext context, int index) {
           if (index < foods.length) {
             final item = foods[index];
             return GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => FoodDetailScreen(food: item)),
+                  MaterialPageRoute(
+                      builder: (context) => FoodDetailScreen(food: item)),
                 );
               },
-              child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(0),
                 child: Column(
                   children: [
-                    Image.asset(item.image),
+                    Container(
+                      width: 150,
+                      height: 150,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(item.image),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
+                    ),
                     Text(item.name),
                   ],
                 ),
-
               ),
             );
           }
