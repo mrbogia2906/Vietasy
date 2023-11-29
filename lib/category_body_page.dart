@@ -23,7 +23,7 @@ class _CategoryBodyPageState extends State<CategoryBodyPage> {
   }
 
   Widget _buildPageItem(int index) {
-    var categoryNames = ['Pho', 'Bun', 'My', 'Gio', 'Cha'];
+    var categoryNames = ['Phở', 'Bún', 'Mỳ', 'Giò', 'Chả'];
     var categoryImages = [
       'assets/images/pho.jpeg',
       'assets/images/pho.jpeg',
