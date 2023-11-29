@@ -11,7 +11,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  bool _isLoggedIn = true; // Giả sử trạng thái đăng nhập, thay đổi tùy theo logic của bạn
+  bool _isLoggedIn = true; // Giả sử trạng thái đăng nhập
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,6 @@ class _MainAppState extends State<MainApp> {
         // '/login': (context) => LoginScreen(),
         '/register': (context) => SignUp(),
         '/home': (context) => Home(),
-        // Thêm các route khác tùy theo nhu cầu
       },
     );
   }

@@ -12,20 +12,6 @@ class RecommendBodyPage extends StatefulWidget {
 }
 
 class _RecommendBodyPageState extends State<RecommendBodyPage> {
-  final List<FoodItem> foodItems = [
-    FoodItem(name: 'Món Ăn 1', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 2', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 3', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 4', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 5', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 6', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 7', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 8', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 9', imageUrl: 'assets/images/pho.jpeg'),
-    FoodItem(name: 'Món Ăn 10', imageUrl: 'assets/images/pho.jpeg'),
-    // ... thêm các FoodItem khác
-  ];
-
   @override
   Widget build(BuildContext context) {
     final foodProvider = Provider.of<FoodProvider>(context);
@@ -63,11 +49,4 @@ class _RecommendBodyPageState extends State<RecommendBodyPage> {
       ),
     );
   }
-}
-
-class FoodItem {
-  final String name;
-  final String imageUrl;
-
-  FoodItem({required this.name, required this.imageUrl});
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home.dart';  // Sử dụng màn hình Home bạn đã cung cấp
-import 'search_screen.dart';  // Màn hình tìm kiếm
-import 'favorite_screen.dart';  // Màn hình yêu thích
-import 'profile_screen.dart';  // Màn hình hồ sơ cá nhân
+import 'home.dart';
+import 'search_screen.dart';
+import 'favorite_screen.dart';
+import 'profile_screen.dart';
 
 class HomeWithBottomNav extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _HomeWithBottomNavState extends State<HomeWithBottomNav> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    Home(),  // Màn hình Home bạn cung cấp
+    Home(),
     SearchScreen(),
     FavoriteScreen(),
     ProfileScreen(),

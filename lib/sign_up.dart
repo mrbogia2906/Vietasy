@@ -30,7 +30,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           // Image.asset("assets/image/welcome.jpg"),
-          // Image.asset('assets/image/welcome.png'), // Thay thế 'path_to_your_welcome_image' bằng đường dẫn hình ảnh của bạn
+          // Image.asset('assets/image/welcome.png'),
           TextField(decoration: InputDecoration(labelText: 'Username')),
           TextField(decoration: InputDecoration(labelText: 'Email')),
           TextField(decoration: InputDecoration(labelText: 'Password')),

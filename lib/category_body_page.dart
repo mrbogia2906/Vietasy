@@ -23,8 +23,8 @@ class _CategoryBodyPageState extends State<CategoryBodyPage> {
     );
   }
   Widget _buildPageItem(int index){
-    var categoryNames = ['Pho', 'Bun', 'My','Gio','Cha']; // Tên các category
-    var categoryImages = ['assets/images/pho.jpeg', 'assets/images/pho.jpeg', 'assets/images/pho.jpeg', 'assets/images/pho.jpeg', 'assets/images/pho.jpeg']; // Hình ảnh
+    var categoryNames = ['Pho', 'Bun', 'My','Gio','Cha'];
+    var categoryImages = ['assets/images/pho.jpeg', 'assets/images/pho.jpeg', 'assets/images/pho.jpeg', 'assets/images/pho.jpeg', 'assets/images/pho.jpeg'];
     return GestureDetector(
       onTap: () {
         Navigator.push(
