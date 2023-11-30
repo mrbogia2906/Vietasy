@@ -36,7 +36,7 @@ class _RecommendBodyPageState extends State<RecommendBodyPage> {
                 children: [
                   Container(
                     width: 160,
-                    height: 160,
+                    height: 150,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(item.image),

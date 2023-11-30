@@ -1,10 +1,52 @@
 import 'package:flutter/material.dart';
+
 import '../models/foods.dart';
 
-class FoodDetailScreen extends StatelessWidget {
+class FoodDetailScreen extends StatefulWidget {
   final Food food;
 
   const FoodDetailScreen({super.key, required this.food});
+
+  @override
+  State<FoodDetailScreen> createState() => _FoodDetailScreenState();
+}
+
+class _FoodDetailScreenState extends State<FoodDetailScreen> {
+  final controller = TextEditingController();
+  List<Comment> comments = [
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: 'B.O.A.T',
+        comment: 'Tôi 1 đời liêm khiết'),
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: 'CR7',
+        comment: 'SIUUUUUUU'),
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: '7 chuồn',
+        comment: '7 > 10'),
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: '7 chọ',
+        comment: "I'm infinity"),
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: 'Critiano Ronaldo',
+        comment: 'Món này liêm khiết'),
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: 'Messi',
+        comment: 'Món này ngon'),
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: 'Si lùn',
+        comment: 'Tôi sẽ dẫn cả nhà ra đây ăn'),
+    Comment(
+        avatarUrl: 'assets/images/7cho.jpeg',
+        username: 'M10',
+        comment: '7 > 5'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +70,7 @@ class FoodDetailScreen extends StatelessWidget {
               ),
             ),
           ),
-          title: Text(food.name, style: const TextStyle(fontSize: 20)),
+          title: Text(widget.food.name, style: const TextStyle(fontSize: 20)),
         ),
         body: Padding(
           padding:
@@ -41,7 +83,7 @@ class FoodDetailScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage(food.image),
+                    image: AssetImage(widget.food.image),
                   ),
                 ),
               ),
@@ -51,14 +93,14 @@ class FoodDetailScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      food.name,
+                      widget.food.name,
                       style: const TextStyle(
                           fontSize: 20, fontWeight: FontWeight.w700),
                     ),
                   ],
                 ),
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 12),
@@ -109,41 +151,89 @@ class FoodDetailScreen extends StatelessWidget {
                       Tab(
                         text: 'About',
                       ),
-                      Tab(text: 'Ingredients'),
                       Tab(text: 'Process'),
+                      Tab(text: 'Address'),
                       Tab(
-                        text: "Addresses",
+                        text: "Comment",
                       )
                     ],
                   ),
                 ),
               ),
-              const Expanded(
+              Expanded(
                 child: TabBarView(
                   children: [
                     // Tab About
                     SingleChildScrollView(
                       child: Column(
-                        children: [Text('Món này ngon')],
-                      ),
-                    ),
-                    // Tab Ingredients
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [Text('Nhiều nguyên liệu vl')],
+                        children: [
+                          Text(
+                              "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
+                              "\n\nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+                              "\n\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.")
+                        ],
                       ),
                     ),
                     // Tab Process
                     SingleChildScrollView(
                       child: Column(
+                        children: [Text('Nhiều nguyên liệu vl')],
+                      ),
+                    ),
+                    // Tab Address
+                    SingleChildScrollView(
+                      child: Column(
                         children: [Text('Cách làm khó vl')],
                       ),
                     ),
-                    // Tab Addresses
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [Text('Nhiều quán ngon vl')],
-                      ),
+                    // Tab Comment
+                    Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 60),
+                          // Đặt padding cho nội dung
+                          child: ListView.builder(
+                              itemCount: 8, // Số lượng comments là giả định
+                              itemBuilder: (context, index) {
+                                return buildWidgetComment(
+                                  comments[index].avatarUrl,
+                                  comments[index].username,
+                                  comments[index].comment,
+                                );
+                              }),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextField(
+                                  controller: controller,
+                                  cursorColor: Colors.grey,
+                                  decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.grey.shade200,
+                                      hintText: 'Write comment',
+                                      hintStyle: const TextStyle(fontSize: 14),
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              horizontal: 10),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide.none,
+                                      )),
+                                ),
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.send),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -154,4 +244,46 @@ class FoodDetailScreen extends StatelessWidget {
       ),
     );
   }
+
+  Widget buildWidgetComment(String avatarUrl, String username, String comment) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 19),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundImage: AssetImage(avatarUrl),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(left: 10, top: 5),
+            width: 300,
+            height: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.grey.shade200,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  username,
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+                Text(comment)
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Comment {
+  final String avatarUrl;
+  final String username;
+  final String comment;
+
+  Comment(
+      {required this.avatarUrl, required this.username, required this.comment});
 }
