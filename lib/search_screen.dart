@@ -1,7 +1,6 @@
 import 'package:diacritic/diacritic.dart';
 import 'package:flutter/material.dart';
 import 'package:vietasy/models/foods.dart';
-import 'package:vietasy/food_details_page.dart';
 
 import 'models/food_card_search.dart';
 
@@ -33,37 +32,43 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Search"),
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-            child: TextField(
-              controller: controller,
-              cursorColor: Colors.grey,
-              decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.grey.shade200,
-                  prefixIcon: const Icon(Icons.search),
-                  hintText: 'Search',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
-                  )),
-              onChanged: searchFood,
+      body: Padding(
+        padding:
+            const EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 10),
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+              child: TextField(
+                controller: controller,
+                cursorColor: Colors.grey,
+                decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.grey.shade200,
+                    prefixIcon: const Icon(Icons.search),
+                    hintText: 'Search',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    )),
+                onChanged: searchFood,
+              ),
             ),
-          ),
-          Expanded(
-            child: hasSearchResult ? ListView.builder(
-              itemCount: foods.length,
-              itemBuilder: (context, index) {
-                final food = foods[index];
-                return FoodCard(food: food);
-              },
-            ) : Center(
-              child: Text('Không tìm thấy món ăn phù hợp.'),
+            Expanded(
+              child: hasSearchResult
+                  ? ListView.builder(
+                      itemCount: foods.length,
+                      itemBuilder: (context, index) {
+                        final food = foods[index];
+                        return FoodCard(food: food);
+                      },
+                    )
+                  : Center(
+                      child: Text('Không tìm thấy món ăn phù hợp.'),
+                    ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

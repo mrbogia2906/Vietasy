@@ -4,7 +4,7 @@ import '../models/foods.dart';
 class FoodDetailScreen extends StatelessWidget {
   final Food food;
 
-  FoodDetailScreen({Key? key, required this.food}) : super(key: key);
+  const FoodDetailScreen({super.key, required this.food});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class FoodDetailScreen extends StatelessWidget {
           leadingWidth: 100,
           leading: InkWell(
             onTap: () => Navigator.of(context).pop(),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 10.0),
+            child: const Padding(
+              padding: EdgeInsets.only(left: 10.0),
               child: Row(
                 children: [
                   Icon(Icons.arrow_back_ios, size: 20),
@@ -28,106 +28,116 @@ class FoodDetailScreen extends StatelessWidget {
               ),
             ),
           ),
-          title: Text(food.name, style: TextStyle(fontSize: 20)),
+          title: Text(food.name, style: const TextStyle(fontSize: 20)),
         ),
-        body: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 250,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: DecorationImage(
+        body: Padding(
+          padding:
+              const EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 10),
+          child: Column(
+            children: [
+              Container(
+                height: 250,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(food.image),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Row(
+              Padding(
+                padding: const EdgeInsets.only(left: 15, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      food.name,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
+              ),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(food.name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),),
+                  SizedBox(width: 12),
+                  Icon(
+                    Icons.timer,
+                    size: 20,
+                  ),
+                  SizedBox(width: 4),
+                  Text(
+                    '50min',
+                  ),
+                  SizedBox(width: 16),
+                  Icon(Icons.bar_chart, size: 20),
+                  SizedBox(width: 4),
+                  Text(
+                    'Medium',
+                  ),
+                  SizedBox(width: 16),
+                  Icon(
+                    Icons.location_on,
+                    size: 20,
+                  ),
+                  SizedBox(width: 4),
+                  Text(
+                    "Nhất Quán",
+                  ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(width: 12),
-
-                Icon(Icons.timer, size: 20,),
-                SizedBox(width: 4),
-                Text('50min',),
-
-                SizedBox(width: 16),
-
-                Icon(Icons.bar_chart, size: 20),
-                SizedBox(width: 4),
-                Text('Medium',),
-
-                SizedBox(width: 16),
-
-                Icon(Icons.location_on, size: 20,),
-                SizedBox(width: 4),
-                Text("Nhất Quán",),
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.grey.shade300,
-              ),
-              child: TabBar(
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicator: BoxDecoration(
-                  color: Colors.pink.shade400,
-                  borderRadius: BorderRadius.circular(10),
-                  shape: BoxShape.rectangle,
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey.shade300,
+                  ),
+                  child: TabBar(
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicator: BoxDecoration(
+                      color: Colors.pink.shade300,
+                      borderRadius: BorderRadius.circular(10),
+                      shape: BoxShape.rectangle,
+                    ),
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.black,
+                    tabs: const [
+                      Tab(text: 'About'),
+                      Tab(text: 'Ingredients'),
+                      Tab(text: 'Process'),
+                    ],
+                  ),
                 ),
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.black,
-                tabs: [
-                  Tab(text: 'About'),
-                  Tab(text: 'Ingredients'),
-                  Tab(text: 'Process'),
-                ],
               ),
-            ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  // Tab About
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text('Món này ngon')
-                      ],
+              const Expanded(
+                child: TabBarView(
+                  children: [
+                    // Tab About
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [Text('Món này ngon')],
+                      ),
                     ),
-                  ),
-                  // Tab Ingredients
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text('Nhiều nguyên liệu vl')
-                      ],
+                    // Tab Ingredients
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [Text('Nhiều nguyên liệu vl')],
+                      ),
                     ),
-                  ),
-                  // Tab Process
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Text('Cách làm khó vl')
-                      ],
+                    // Tab Process
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [Text('Cách làm khó vl')],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -11,14 +11,17 @@ class CategoryBodyPage extends StatefulWidget {
 class _CategoryBodyPageState extends State<CategoryBodyPage> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 120,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return _buildPageItem(index);
-          }),
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      child: SizedBox(
+        height: 125,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 5,
+            itemBuilder: (context, index) {
+              return _buildPageItem(index);
+            }),
+      ),
     );
   }
 
@@ -42,25 +45,26 @@ class _CategoryBodyPageState extends State<CategoryBodyPage> {
         );
       },
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: 100,
             height: 100,
-            margin: const EdgeInsets.only(left: 10, right: 10),
+            margin: const EdgeInsets.only(right: 20),
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(categoryImages[index]),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
             ),
           ),
-          Align(
-            alignment: Alignment.centerLeft,
+          Padding(
+            padding: const EdgeInsets.only(left: 5, top: 2),
             child: Text(
               categoryNames[index],
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
             ),
           ),
         ],

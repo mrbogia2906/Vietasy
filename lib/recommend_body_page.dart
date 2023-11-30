@@ -18,8 +18,8 @@ class _RecommendBodyPageState extends State<RecommendBodyPage> {
     final foods = foodProvider.foods;
 
     return SliverGrid(
-      gridDelegate:
-          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 15),
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
           if (index < foods.length) {
@@ -32,25 +32,31 @@ class _RecommendBodyPageState extends State<RecommendBodyPage> {
                       builder: (context) => FoodDetailScreen(food: item)),
                 );
               },
-              child: Padding(
-                padding: const EdgeInsets.all(0),
-                child: Column(
-                  children: [
-                    Container(
-                      width: 150,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(item.image),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
+              child: Column(
+                children: [
+                  Container(
+                    width: 160,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(item.image),
+                        fit: BoxFit.cover,
                       ),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white,
                     ),
-                    Text(item.name),
-                  ],
-                ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 2),
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          item.name,
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w500),
+                        )),
+                  ),
+                ],
               ),
             );
           }
