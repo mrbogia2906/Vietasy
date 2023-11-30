@@ -15,10 +15,10 @@ class _HomeWithBottomNavState extends State<HomeWithBottomNav> {
   int _selectedIndex = 0;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    Home(),
-    SearchScreen(),
-    FavoriteScreen(),
-    ProfileScreen(),
+    const Home(),
+    const SearchScreen(),
+    const FavoriteScreen(),
+    const ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -34,7 +34,8 @@ class _HomeWithBottomNavState extends State<HomeWithBottomNav> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black54,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

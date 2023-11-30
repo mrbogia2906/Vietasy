@@ -38,6 +38,7 @@ class _SearchScreenState extends State<SearchScreen> {
         child: Column(
           children: [
             Container(
+              height: 40,
               margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
               child: TextField(
                 controller: controller,
@@ -47,6 +48,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     fillColor: Colors.grey.shade200,
                     prefixIcon: const Icon(Icons.search),
                     hintText: 'Search',
+                    hintStyle: const TextStyle(fontSize: 14),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 0),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
@@ -63,7 +66,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         return FoodCard(food: food);
                       },
                     )
-                  : Center(
+                  : const Center(
                       child: Text('Không tìm thấy món ăn phù hợp.'),
                     ),
             ),

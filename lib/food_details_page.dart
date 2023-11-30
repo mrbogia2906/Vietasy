@@ -9,7 +9,7 @@ class FoodDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3, // Số lượng tabs
+      length: 4, // Số lượng tabs
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -88,26 +88,32 @@ class FoodDetailScreen extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: Container(
-                  height: 50,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.grey.shade300,
                   ),
                   child: TabBar(
+                    labelPadding: const EdgeInsets.all(0),
                     indicatorSize: TabBarIndicatorSize.tab,
                     indicator: BoxDecoration(
-                      color: Colors.pink.shade300,
+                      color: const Color.fromRGBO(240, 94, 129, 1),
                       borderRadius: BorderRadius.circular(10),
                       shape: BoxShape.rectangle,
                     ),
                     labelColor: Colors.white,
                     unselectedLabelColor: Colors.black,
                     tabs: const [
-                      Tab(text: 'About'),
+                      Tab(
+                        text: 'About',
+                      ),
                       Tab(text: 'Ingredients'),
                       Tab(text: 'Process'),
+                      Tab(
+                        text: "Addresses",
+                      )
                     ],
                   ),
                 ),
@@ -131,6 +137,12 @@ class FoodDetailScreen extends StatelessWidget {
                     SingleChildScrollView(
                       child: Column(
                         children: [Text('Cách làm khó vl')],
+                      ),
+                    ),
+                    // Tab Addresses
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [Text('Nhiều quán ngon vl')],
                       ),
                     ),
                   ],
