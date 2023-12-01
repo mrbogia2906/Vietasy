@@ -72,13 +72,13 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
           ),
           title: Text(widget.food.name, style: const TextStyle(fontSize: 20)),
         ),
-        body: Padding(
-          padding:
-              const EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 10),
-          child: Column(
-            children: [
-              Container(
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Container(
+                margin: EdgeInsets.fromLTRB(15, 15, 15, 0),
                 height: 250,
+                width: 350,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   image: DecorationImage(
@@ -87,7 +87,9 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                   ),
                 ),
               ),
-              Padding(
+            ), //1
+            SliverToBoxAdapter(
+              child: Padding(
                 padding: const EdgeInsets.only(left: 15, top: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -100,7 +102,9 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                   ],
                 ),
               ),
-              Row(
+            ), //2
+            SliverToBoxAdapter(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 12),
@@ -129,10 +133,14 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20),
+            ), //3
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, left: 15, right: 15),
                 child: Container(
                   height: 40,
+                  width: 350,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.grey.shade300,
@@ -160,86 +168,115 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                   ),
                 ),
               ),
-              Expanded(
-                child: TabBarView(
-                  children: [
-                    // Tab About
-                    SingleChildScrollView(
+            ), //4
+            SliverFillRemaining(
+              child: TabBarView(
+                children: [
+                  // Tab About
+                  SingleChildScrollView(
+                    physics: NeverScrollableScrollPhysics(),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Column(
                         children: [
                           Text(
                               "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
                               "\n\nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
-                              "\n\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.")
+                              "\n\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."),
                         ],
                       ),
                     ),
-                    // Tab Process
-                    SingleChildScrollView(
+                  ),
+                  // Tab Process
+                  SingleChildScrollView(
+                    physics: NeverScrollableScrollPhysics(),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Column(
-                        children: [Text('Nhiều nguyên liệu vl')],
+                        children: [
+                          Text(
+                              "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
+                              "\n\nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+                              "\n\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."),
+                        ],
                       ),
                     ),
-                    // Tab Address
-                    SingleChildScrollView(
+                  ),
+                  // Tab Address
+                  SingleChildScrollView(
+                    physics: NeverScrollableScrollPhysics(),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Column(
-                        children: [Text('Cách làm khó vl')],
+                        children: [
+                          Text(
+                              "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
+                              "\n\nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+                              "\n\nThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."),
+                        ],
                       ),
                     ),
-                    // Tab Comment
-                    Stack(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 60),
-                          // Đặt padding cho nội dung
-                          child: ListView.builder(
-                              itemCount: 8, // Số lượng comments là giả định
-                              itemBuilder: (context, index) {
-                                return buildWidgetComment(
-                                  comments[index].avatarUrl,
-                                  comments[index].username,
-                                  comments[index].comment,
-                                );
-                              }),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: 0,
-                          right: 0,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: TextField(
-                                  controller: controller,
-                                  cursorColor: Colors.grey,
-                                  decoration: InputDecoration(
-                                      filled: true,
-                                      fillColor: Colors.grey.shade200,
-                                      hintText: 'Write comment',
-                                      hintStyle: const TextStyle(fontSize: 14),
-                                      contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              horizontal: 10),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                        borderSide: BorderSide.none,
-                                      )),
-                                ),
+                  ),
+                  // Tab Comment
+                  Column(
+                    children: [
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 60, left: 15),
+                              child: ListView.builder(
+                                  itemCount: 8,
+                                  itemBuilder: (context, index) {
+                                    return buildWidgetComment(
+                                      comments[index].avatarUrl,
+                                      comments[index].username,
+                                      comments[index].comment,
+                                    );
+                                  }),
+                            ),
+                            Positioned(
+                              bottom: 5,
+                              left: 15,
+                              right: 0,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: TextField(
+                                      controller: controller,
+                                      cursorColor: Colors.grey,
+                                      decoration: InputDecoration(
+                                          filled: true,
+                                          fillColor: Colors.grey.shade200,
+                                          hintText: 'Write comment',
+                                          hintStyle:
+                                              const TextStyle(fontSize: 14),
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 10),
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            borderSide: BorderSide.none,
+                                          )),
+                                    ),
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.send),
+                                    onPressed: () {},
+                                  ),
+                                ],
                               ),
-                              IconButton(
-                                icon: Icon(Icons.send),
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -247,6 +284,8 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
 
   Widget buildWidgetComment(String avatarUrl, String username, String comment) {
     return Container(
+      width: 300,
+      height: 60,
       margin: EdgeInsets.only(bottom: 19),
       child: Row(
         children: [
