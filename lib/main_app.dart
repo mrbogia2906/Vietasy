@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vietasy/bottom_bar.dart';
+import 'package:vietasy/sign_in.dart';
 // import 'login_screen.dart'; // Màn hình đăng nhập
 // import 'register_screen.dart'; // Màn hình đăng ký
 import 'home.dart'; // Màn hình chính với bottom nav
@@ -11,7 +12,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  bool _isLoggedIn = true; // Giả sử trạng thái đăng nhập
+  bool _isLoggedIn = false; // Giả sử trạng thái đăng nhập
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +24,11 @@ class _MainAppState extends State<MainApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
         useMaterial3: true,
       ),
-      home: _isLoggedIn ? HomeWithBottomNav() : SignUp(),
+      home: _isLoggedIn ? HomeWithBottomNav() : SignIn(),
       routes: {
         // '/login': (context) => LoginScreen(),
-        '/register': (context) => SignUp(),
+        '/signin': (context) => SignIn(),
+        '/signup': (context) => SignUp(),
         '/home': (context) => Home(),
       },
     );

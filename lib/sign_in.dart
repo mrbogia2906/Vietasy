@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:vietasy/sign_in.dart';
+import 'package:vietasy/sign_up.dart';
 
 import 'bottom_bar.dart';
-import 'home.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
   @override
-  State<SignUp> createState() => _SignUpState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,11 +22,11 @@ class _SignUpState extends State<SignUp> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 30,
+                height: 50,
               ),
               Center(
                 child: Text(
-                  "Hi there!",
+                  "Welcome!",
                   style:
                   TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                 ),
@@ -39,28 +38,6 @@ class _SignUpState extends State<SignUp> {
               ),
               SizedBox(
                 height: 10,
-              ),
-              Text(
-                "Username",
-                style: TextStyle(fontSize: 12),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black12,
-                    ),
-                    color: Colors.grey[100],
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(10))),
-                child: const TextField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter Your Username',
-                      contentPadding: EdgeInsets.all(10)),
-                ),
-              ),
-              SizedBox(
-                height: 20,
               ),
               Text(
                 "Email",
@@ -75,7 +52,6 @@ class _SignUpState extends State<SignUp> {
                     borderRadius:
                     const BorderRadius.all(Radius.circular(10))),
                 child: const TextField(
-                  obscureText: true,
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Enter Your Email',
@@ -101,12 +77,26 @@ class _SignUpState extends State<SignUp> {
                   obscureText: true,
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Enter Your Password',
+                      hintText: 'Enter Password',
                       contentPadding: EdgeInsets.all(10)),
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 5,
+              ),
+              InkWell(
+                  onTap: () {
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (_) => const ForgotPassword()));
+                  },
+                  child: Text(
+                    "Forgot Password ? ",
+                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                  )),
+              SizedBox(
+                height: 10,
               ),
               MaterialButton(
                 color: Theme.of(context).primaryColor,
@@ -117,14 +107,15 @@ class _SignUpState extends State<SignUp> {
                     borderRadius: BorderRadius.circular(10.0),
                     side: BorderSide(color: Theme.of(context).primaryColor)),
                 child: Text(
-                  "Sign Up",
+                  "Login",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => const SignIn()));
+                onPressed: (){
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeWithBottomNav()),
+                        (route) => false,
+                  );
                 },
               ),
               SizedBox(
@@ -134,7 +125,7 @@ class _SignUpState extends State<SignUp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "already have an account ? ",
+                    "don't have an account ? ",
                     style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: 14,
@@ -145,10 +136,10 @@ class _SignUpState extends State<SignUp> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => const SignIn()));
+                              builder: (_) => const SignUp()));
                     },
                     child: Text(
-                      "Sign In ",
+                      "Sign Up ",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
