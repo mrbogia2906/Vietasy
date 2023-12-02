@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../food_details_page.dart';
 import 'fav_provider.dart';
 import 'foods.dart';
@@ -16,7 +17,7 @@ class FoodCard extends StatelessWidget {
 
     return Card(
       elevation: 4.0,
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
@@ -31,7 +32,7 @@ class FoodCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10.0),
                 bottomLeft: Radius.circular(10.0),
               ),
@@ -44,23 +45,22 @@ class FoodCard extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
                       food.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,
                       ),
                     ),
-                    SizedBox(height: 5.0),
-                    Text('Cal 235 | 48 min'),
-                    SizedBox(height: 5.0),
-
-                    SizedBox(height: 5.0),
-                    Text('Medium', style: TextStyle(color: Colors.grey))
+                    const SizedBox(height: 5.0),
+                    const Text('Cal 235 | 48 min'),
+                    const SizedBox(height: 5.0),
+                    const SizedBox(height: 5.0),
+                    const Text('Medium', style: TextStyle(color: Colors.grey))
                   ],
                 ),
               ),

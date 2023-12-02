@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vietasy/sign_in.dart';
 
-import 'bottom_bar.dart';
-import 'home.dart';
-
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
 
@@ -17,19 +14,18 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Center(
+              const Center(
                 child: Text(
                   "Hi there!",
-                  style:
-                  TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                 ),
               ),
               Image.asset(
@@ -37,10 +33,10 @@ class _SignUpState extends State<SignUp> {
                 height: 250,
                 width: double.infinity,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Username",
                 style: TextStyle(fontSize: 12),
               ),
@@ -50,8 +46,7 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.black12,
                     ),
                     color: Colors.grey[100],
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(10))),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                 child: const TextField(
                   decoration: InputDecoration(
                       border: InputBorder.none,
@@ -59,10 +54,10 @@ class _SignUpState extends State<SignUp> {
                       contentPadding: EdgeInsets.all(10)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "Email",
                 style: TextStyle(fontSize: 12),
               ),
@@ -72,8 +67,7 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.black12,
                     ),
                     color: Colors.grey[100],
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(10))),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                 child: const TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -82,10 +76,10 @@ class _SignUpState extends State<SignUp> {
                       contentPadding: EdgeInsets.all(10)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "Password",
                 style: TextStyle(fontSize: 12),
               ),
@@ -95,8 +89,7 @@ class _SignUpState extends State<SignUp> {
                       color: Colors.black12,
                     ),
                     color: Colors.grey[100],
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(10))),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                 child: const TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -105,7 +98,7 @@ class _SignUpState extends State<SignUp> {
                       contentPadding: EdgeInsets.all(10)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               MaterialButton(
@@ -116,24 +109,22 @@ class _SignUpState extends State<SignUp> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                     side: BorderSide(color: Theme.of(context).primaryColor)),
-                child: Text(
+                child: const Text(
                   "Sign Up",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => const SignIn()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => const SignIn()));
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "already have an account ? ",
                     style: TextStyle(
                         fontWeight: FontWeight.normal,
@@ -142,10 +133,8 @@ class _SignUpState extends State<SignUp> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const SignIn()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const SignIn()));
                     },
                     child: Text(
                       "Sign In ",

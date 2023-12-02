@@ -14,22 +14,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Profile"),
+        title: const Text("Profile"),
       ),
       body: Center(
         child: Column(children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 20),
             child: CircleAvatar(
               radius: 100,
               backgroundImage: AssetImage('assets/images/7cho.jpeg'),
             ),
           ),
-          Text(
+          const Text(
             "B.O.A.T",
             style: TextStyle(fontWeight: FontWeight.w900, fontSize: 26),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(
+            height: 10,
+          ),
           Card(
             margin: const EdgeInsets.only(left: 25, right: 25, bottom: 10),
             shape:
@@ -52,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Card(
             margin: const EdgeInsets.only(left: 25, right: 25, bottom: 10),
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             child: const ListTile(
               leading: Icon(
                 Icons.settings,
@@ -68,18 +70,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
           ),
-          InkWell(
-            onTap: (){
+          GestureDetector(
+            onTap: () {
               Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => SignIn()),
-                    (route) => false,
+                MaterialPageRoute(builder: (context) => const SignIn()),
+                (route) => false,
               );
             },
             child: Card(
               margin: const EdgeInsets.only(left: 25, right: 25, bottom: 10),
-              shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
               child: const ListTile(
                 leading: Icon(
                   Icons.logout,

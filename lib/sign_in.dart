@@ -16,19 +16,18 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              Center(
+              const Center(
                 child: Text(
                   "Welcome!",
-                  style:
-                  TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                 ),
               ),
               Image.asset(
@@ -36,10 +35,10 @@ class _SignInState extends State<SignIn> {
                 height: 250,
                 width: double.infinity,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Email",
                 style: TextStyle(fontSize: 12),
               ),
@@ -49,8 +48,7 @@ class _SignInState extends State<SignIn> {
                       color: Colors.black12,
                     ),
                     color: Colors.grey[100],
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(10))),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                 child: const TextField(
                   decoration: InputDecoration(
                       border: InputBorder.none,
@@ -58,10 +56,10 @@ class _SignInState extends State<SignIn> {
                       contentPadding: EdgeInsets.all(10)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
+              const Text(
                 "Password",
                 style: TextStyle(fontSize: 12),
               ),
@@ -71,8 +69,7 @@ class _SignInState extends State<SignIn> {
                       color: Colors.black12,
                     ),
                     color: Colors.grey[100],
-                    borderRadius:
-                    const BorderRadius.all(Radius.circular(10))),
+                    borderRadius: const BorderRadius.all(Radius.circular(10))),
                 child: const TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -81,7 +78,7 @@ class _SignInState extends State<SignIn> {
                       contentPadding: EdgeInsets.all(10)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               InkWell(
@@ -91,11 +88,11 @@ class _SignInState extends State<SignIn> {
                     //     MaterialPageRoute(
                     //         builder: (_) => const ForgotPassword()));
                   },
-                  child: Text(
+                  child: const Text(
                     "Forgot Password ? ",
                     style: TextStyle(fontSize: 12, color: Colors.grey),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               MaterialButton(
@@ -106,25 +103,26 @@ class _SignInState extends State<SignIn> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                     side: BorderSide(color: Theme.of(context).primaryColor)),
-                child: Text(
+                child: const Text(
                   "Login",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeWithBottomNav()),
-                        (route) => false,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeWithBottomNav()),
+                    (route) => false,
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "don't have an account ? ",
                     style: TextStyle(
                         fontWeight: FontWeight.normal,
@@ -133,10 +131,8 @@ class _SignInState extends State<SignIn> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const SignUp()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const SignUp()));
                     },
                     child: Text(
                       "Sign Up ",
