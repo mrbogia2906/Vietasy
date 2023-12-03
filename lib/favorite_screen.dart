@@ -14,7 +14,7 @@ class FavoriteScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Favorites"),
+        title: const Text("Favorites", style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
       ),
       body: Padding(
         padding:

@@ -15,20 +15,20 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
   final controller = TextEditingController();
   List<Comment> comments = [
     Comment(
-        avatarUrl: 'assets/images/7cho.jpeg',
-        username: 'B.O.A.T',
+        avatarUrl: 'assets/images/avatar.jpg',
+        username: 'Nguyễn Văn A',
         comment: 'Món này rất ngon'),
     Comment(
-        avatarUrl: 'assets/images/7cho.jpeg',
-        username: 'CR7',
+        avatarUrl: 'assets/images/avatar.jpg',
+        username: 'Nguyễn Văn B',
         comment: 'Delicious'),
     Comment(
-        avatarUrl: 'assets/images/7cho.jpeg',
-        username: '7 Liêm',
+        avatarUrl: 'assets/images/avatar.jpg',
+        username: 'Nguyễn Văn C',
         comment: 'Tôi sẽ dẫn gia đình đến ăn'),
     Comment(
-        avatarUrl: 'assets/images/7cho.jpeg',
-        username: '7 chọ',
+        avatarUrl: 'assets/images/avatar.jpg',
+        username: 'Nguyễn Văn D',
         comment: "I'm infinity"),
     Comment(
         avatarUrl: 'assets/images/7cho.jpeg',
@@ -39,12 +39,12 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
         username: 'Messi',
         comment: 'Món này ngon'),
     Comment(
-        avatarUrl: 'assets/images/7cho.jpeg',
-        username: 'Si lùn',
+        avatarUrl: 'assets/images/avatar.jpg',
+        username: 'Nguyễn Văn E',
         comment: 'Tôi sẽ dẫn cả nhà ra đây ăn'),
     Comment(
-        avatarUrl: 'assets/images/7cho.jpeg',
-        username: 'M10',
+        avatarUrl: 'assets/images/avatar.jpg',
+        username: 'Nguyễn Văn F',
         comment: '7 > 5'),
   ];
 
@@ -137,7 +137,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.only(
-                    top: 20, bottom: 20, left: 15, right: 15),
+                    top: 20, bottom: 15, left: 15, right: 15),
                 child: Container(
                   height: 40,
                   width: 350,
@@ -159,7 +159,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                       Tab(
                         text: 'About',
                       ),
-                      Tab(text: 'Process'),
+                      Tab(text: 'Ingredient'),
                       Tab(text: 'Address'),
                       Tab(
                         text: "Comment",
@@ -179,7 +179,7 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                       padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                       child: Column(
                         children: [
-                          Text(widget.food.about),
+                          Text(widget.food.about, style: TextStyle(fontSize: 16,)),
                           // Text(
                           //     "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
                           //     "\n\nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
@@ -192,10 +192,16 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                   SingleChildScrollView(
                     physics: NeverScrollableScrollPhysics(),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 10, 0),
                       child: Column(
                         children: [
-                          Text(widget.food.process),
+                          Row(
+                            children: [
+                              Text("Nguyên Liệu", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                          SizedBox(height: 5,),
+                          Text(widget.food.process, style: TextStyle(fontSize: 16,)),
                           // Text(
                           //     "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
                           //     "\n\nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
@@ -208,10 +214,10 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
                   SingleChildScrollView(
                     physics: NeverScrollableScrollPhysics(),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 10, 0),
                       child: Column(
                         children: [
-                          Text(widget.food.address),
+                          Text(widget.food.address, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                           // Text(
                           //     "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "
                           //     "\n\nIf you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."

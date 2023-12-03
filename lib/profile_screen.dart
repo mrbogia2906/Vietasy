@@ -14,7 +14,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Profile"),
+        title: const Text("Profile", style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),),
       ),
       body: Center(
         child: Column(children: [
@@ -22,11 +22,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             padding: EdgeInsets.symmetric(vertical: 20),
             child: CircleAvatar(
               radius: 100,
-              backgroundImage: AssetImage('assets/images/7cho.jpeg'),
+              backgroundImage: AssetImage('assets/images/avatar.jpg'),
             ),
           ),
           const Text(
-            "B.O.A.T",
+            "Nguyễn Văn A",
             style: TextStyle(fontWeight: FontWeight.w900, fontSize: 26),
           ),
           const SizedBox(
