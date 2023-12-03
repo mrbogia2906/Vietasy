@@ -18,7 +18,7 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
     final List<Widget> imageSliders = widget.imgList
         .map((item) => ClipRRect(
               borderRadius: const BorderRadius.all(
-                Radius.circular(5.0),
+                Radius.circular(15.0),
               ),
               child: Stack(
                 children: [
@@ -46,14 +46,14 @@ class _CarouselWithDotsState extends State<CarouselWithDots> {
                         horizontal: 20,
                         vertical: 10,
                       ),
-                      child: Text(
-                        'No. ${widget.imgList.indexOf(item)} image',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      // child: Text(
+                      //   'No. ${widget.imgList.indexOf(item)} image',
+                      //   style: const TextStyle(
+                      //     color: Colors.white,
+                      //     fontSize: 20.0,
+                      //     fontWeight: FontWeight.bold,
+                      //   ),
+                      // ),
                     ),
                   ),
                 ],

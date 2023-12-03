@@ -8,7 +8,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> imgList = ["assets/images/vietnamfood.jpg"];
+    final List<String> imgList = ["assets/images/vietnamfood.jpg", "assets/images/banhdacua.jpg", "assets/images/buncha.jpg", "assets/images/comtam.jpg", "assets/images/phoga.jpg"];
 
     return Scaffold(
       appBar: AppBar(
@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 15, top: 15, bottom: 10),
+                    padding: EdgeInsets.only(left: 15, top: 15, bottom: 5),
                     child: Text("Category",
                         style: TextStyle(
                           fontSize: 20,
@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 15, top: 15, bottom: 10),
+                    padding: EdgeInsets.only(left: 15, top: 15, bottom: 5),
                     child: Text("Recommended",
                         style: TextStyle(
                           fontSize: 20,

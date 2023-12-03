@@ -26,13 +26,13 @@ class _CategoryBodyPageState extends State<CategoryBodyPage> {
   }
 
   Widget _buildPageItem(int index) {
-    var categoryNames = ['Phở', 'Bún', 'Mỳ', 'Giò', 'Chả'];
+    var categoryNames = ['Phở', 'Bún', 'Bánh đa', 'Cơm', 'Miến'];
     var categoryImages = [
-      'assets/images/pho.jpeg',
-      'assets/images/pho.jpeg',
-      'assets/images/pho.jpeg',
-      'assets/images/pho.jpeg',
-      'assets/images/pho.jpeg'
+      'assets/images/phoga.jpg',
+      'assets/images/buncha.jpg',
+      'assets/images/banhdacua.jpg',
+      'assets/images/comtam.jpg',
+      'assets/images/mienluon.jpg'
     ];
     return GestureDetector(
       onTap: () {

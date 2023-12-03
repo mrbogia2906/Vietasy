@@ -17,15 +17,15 @@ class _FoodDetailScreenState extends State<FoodDetailScreen> {
     Comment(
         avatarUrl: 'assets/images/7cho.jpeg',
         username: 'B.O.A.T',
-        comment: 'Tôi 1 đời liêm khiết'),
+        comment: 'Món này rất ngon'),
     Comment(
         avatarUrl: 'assets/images/7cho.jpeg',
         username: 'CR7',
-        comment: 'SIUUUUUUU'),
+        comment: 'Delicious'),
     Comment(
         avatarUrl: 'assets/images/7cho.jpeg',
-        username: '7 chuồn',
-        comment: '7 > 10'),
+        username: '7 Liêm',
+        comment: 'Tôi sẽ dẫn gia đình đến ăn'),
     Comment(
         avatarUrl: 'assets/images/7cho.jpeg',
         username: '7 chọ',
